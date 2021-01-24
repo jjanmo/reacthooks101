@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Form from './components/Form';
+import List from './components/List';
 
 const Wrapper = styled.div`
   margin: 2rem auto;
@@ -19,11 +20,20 @@ const Title = styled.h1`
   margin: 1rem 0;
 `;
 
+const todos = [
+  {
+    status: 'todo', //todo, done
+    contents: 'Study Typescript', //todo contents
+    createdAt: Date.now(), //created date
+  },
+];
+
 function App() {
   return (
     <Wrapper className="App">
       <Title>My ToDoApp</Title>
       <Form />
+      <List todos={todos} />
     </Wrapper>
   );
 }
