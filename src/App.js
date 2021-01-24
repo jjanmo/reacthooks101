@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import Form from './components/Form';
 import List from './components/List';
@@ -20,15 +21,22 @@ const Title = styled.h1`
   margin: 1rem 0;
 `;
 
-const todos = [
-  {
-    status: 'todo', //todo, done
-    contents: 'Study Typescript', //todo contents
-    createdAt: Date.now(), //created date
-  },
-];
+const fetchTodos = async (callback) => {
+  try {
+    const result = await axios('http://localhost:1234/todos');
+    callback(result.data);
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 function App() {
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    fetchTodos(setTodos);
+  }, []);
+
   return (
     <Wrapper className="App">
       <Title>My ToDoApp</Title>
