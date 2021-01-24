@@ -18,13 +18,15 @@
 
 기본적으로 리액트에서는 `변화하는 값(state)`을 다루기 위해, 혹은 `API요청`을 필요로 할 때, [ **리액트의 라이프 라이클 메소드를 이용하는 상황** ] `class기반`으로 구현해야만 했다. 그렇기 때문에 함수형 컴퍼넌트를 사용하는데 있어서 애로사항이 존재하였다. 그런데 이것들을 함수형으로 해결하기 위해서 [recompose](https://github.com/acdlite/recompose) 라는 프로젝트가 `Andrew Clark`에 의해서 진행되었는데, 이 분이 React Team에 합류하게 되고, 이 프로젝트를 전격으로 리액트가 받아들여서 `React Hooks`가 탄생(?)하였다. `React Hooks`은 리액트를 함수형 컴퍼넌트에서도 클래스 컴퍼넌트와 동일하게 작동하게끔 구현하고자 하는 동기를 갖고 탄생하게 된 리액트의 업데이트 버전이다.
 
+</br>
+
 ## Hooks Concept
 
-> 리액트에 제공하는 Hooks API는 [총 10가지](https://ko.reactjs.org/docs/hooks-reference.html)가 존재한다. 모든 것을 정확히 알아야할지는 모르겠지만, 한 번쯤 알아보는 것 자체로서 도움이 될 것라 생각한다.
+> 리액트에 제공하는 Hooks API는 [총 10가지](https://ko.reactjs.org/docs/hooks-reference.html)가 존재한다. 모든 것을 정확히 알아야할지는 모르겠지만, 한 번쯤 알아보는 것 자체로서 도움이 될 것라 생각하여 <u>10가지의 훅스의 개념</u>에 대해서 정리해본다.
 
 ### Contents
 
-> 별이 들어있는 것은 내가 자주 사용하는 리액트 훅스이다. <i>초보자</i> 인 내가 자주 사용한다면, 기본적으로 알아야하지 않을까 해서 표시해본다.
+> ⭐️이 들어있는 것은 내가 자주 사용하는 리액트 훅스이다. <i>초보자</i> 인 내가 자주 사용한다면, 기본적으로 알아야하지 않을까 해서 표시해본다.
 
 - [useState ⭐️](./docs/hooks_api.md#usestate)
 
@@ -45,6 +47,12 @@
 - useLayoutEffect
 
 - useDebugValue
+
+</br>
+
+## Hooks TodoApp
+
+> [What I Learned this TodoApp](./docs/hooks_todoapp)
 
 </br>
 
