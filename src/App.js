@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styled from 'styled-components';
 import Form from './components/Form';
 import List from './components/List';
+import { useFetch } from './hooks';
 
 const Wrapper = styled.div`
   margin: 2rem auto;
@@ -21,27 +21,14 @@ const Title = styled.h1`
   margin: 1rem 0;
 `;
 
-const fetchTodos = async (callback) => {
-  try {
-    const result = await axios('http://localhost:1234/todos');
-    callback(result.data);
-  } catch (e) {
-    console.log(e);
-  }
-};
-
 function App() {
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    fetchTodos(setTodos);
-  }, []);
+  const data = useFetch('http://localhost:1234/todos');
 
   return (
     <Wrapper className="App">
       <Title>My ToDoApp</Title>
       <Form />
-      <List todos={todos} />
+      <List todos={data} />
     </Wrapper>
   );
 }
