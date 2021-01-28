@@ -56,5 +56,3 @@ useEffect(() => {}, [deps]);
 ```
 
 ## useContext
-
-sdfsd
