@@ -13,31 +13,34 @@ const todos = [
   {
     index: 0,
     status: 'todo',
-    contents: 'Study Typescript',
-    createdAt: Date.now(),
+    contents: 'Study React & Redux',
+    createdAt: '2021.02.03',
   },
   {
     index: 1,
-    status: 'todo',
+    status: 'contents',
     contents: 'Study Docker',
-    createdAt: Date.now(),
+    createdAt: '2021.02.03',
   },
   {
     index: 2,
     status: 'done',
-    contents: 'Make TodoApp',
-    createdAt: Date.now(),
+    contents: 'Make Server',
+    createdAt: '2021.02.03',
   },
 ];
+
+app.get('/', (req, res) => {
+  res.send('Hello World 🌈');
+});
 
 app.get('/todos', (req, res) => {
   return res.json(todos);
 });
 
-// add todo
-app.post('/todos', (req, res) => {
-  const aa = req.body;
-  console.log(aa);
+app.post('/todo', (req, res) => {
+  const todos = req.body;
+  console.log(todos);
 });
 
 app.listen(PORT, () => {
