@@ -1,22 +1,35 @@
 # ReactHooks101
 
+<br />
+<details>
+<summary style='font-size:20px'>Log 📖 </summary>
+<br/>
+<br />
+Pause...Repo...🛑<br />
+<br />
+<br/>
+</details>
+<br />
+
+> 리액트 훅스에 대해서 알아보자.
+
 > Practical React Hooks : [`Learn by Building 10 Hooks`](https://nomadcoders.co/react-hooks-introduction) with _Nomad Coders_
 
 > [React Hooks Official Document](https://ko.reactjs.org/docs/hooks-intro.html)
 
 ## Goals
 
-- 리액트 훅스의 개념을 정리해보자 🐶
+- [ ] 리액트 훅스의 개념을 정리해보자 🐶
 
-- 리액트 훅스를 통한 `ToDoApp` 을 만들어보자 🐱
+- [ ] 리액트 훅스를 통한 `ToDoApp` 을 만들어보자 🐱
 
-  > Hooks TodoApp Demo
-
-- 커스텀 훅(Custom Hook)을 만들어보기 🐰
+- [ ] 커스텀 훅(Custom Hook)을 만들어보기 🐰
 
 ## Hooks Backgorund
 
-기본적으로 리액트에서는 `변화하는 값(state)`을 다루기 위해, 혹은 `API요청`을 필요로 할 때, [ **리액트의 라이프 라이클 메소드를 이용하는 상황** ] `class기반`으로 구현해야만 했다. 그렇기 때문에 함수형 컴퍼넌트를 사용하는데 있어서 애로사항이 존재하였다. 그런데 이것들을 함수형으로 해결하기 위해서 [recompose](https://github.com/acdlite/recompose) 라는 프로젝트가 `Andrew Clark`에 의해서 진행되었는데, 이 분이 React Team에 합류하게 되고, 이 프로젝트를 전격으로 리액트가 받아들여서 `React Hooks`가 탄생(?)하였다. `React Hooks`은 리액트를 함수형 컴퍼넌트에서도 클래스 컴퍼넌트와 동일하게 작동하게끔 구현하고자 하는 동기를 갖고 탄생하게 된 리액트의 업데이트 버전이다.
+예전에 리액트에서는 `상태 변화`을 관리하기 위해, 혹은 `API요청`을 필요로 할 때, **리액트의 라이프 라이클 메소드를 이용하는 상황**`class기반`으로 구현해야만 했다. 그렇기 때문에 함수형 컴퍼넌트를 사용하는데 있어서 애로사항이 존재하였다.
+
+그런데 이것들을 함수형으로 해결하기 위해서 [recompose](https://github.com/acdlite/recompose) 라는 프로젝트가 `Andrew Clark`에 의해서 진행되었는데, 이 분이 React Team에 합류하게 되고, 이 프로젝트를 전격으로 리액트가 받아들여서 `React Hooks`가 탄생(?)하였다. `React Hooks`은 리액트를 함수형 컴퍼넌트에서도 클래스 컴퍼넌트와 동일하게 작동하게끔 구현하고자 하는 동기를 갖고 탄생하게 된 리액트의 업데이트 버전이라고 할 수 있다.
 
 </br>
 
