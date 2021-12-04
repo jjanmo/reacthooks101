@@ -1,8 +1,6 @@
 import Block from './Block';
 
-const Board = ({ board }) => {
-  console.log(board.map((row) => row.map((item) => <Block turn={item} />)));
-
+const Board = ({ board, turn, setTurn, setBoard }) => {
   const styles = {
     board: {
       border: '1px solid black',
@@ -18,8 +16,16 @@ const Board = ({ board }) => {
     <div style={styles.board}>
       {board.map((row, i) => (
         <div key={i} style={styles.row}>
-          {row.map((item, j) => (
-            <Block key={`${i}${j}`} item={item} />
+          {row.map((text, j) => (
+            <Block
+              key={`${i}${j}`}
+              id={`${i}${j}`}
+              text={text}
+              turn={turn}
+              board={board}
+              setTurn={setTurn}
+              setBoard={setBoard}
+            />
           ))}
         </div>
       ))}

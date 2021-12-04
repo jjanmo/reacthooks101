@@ -1,16 +1,18 @@
+import { useState } from 'react';
 import Board from './Board';
 import './App.css';
 
 function App() {
-  const board = [
-    [{}, {}, {}],
-    [{}, {}, {}],
-    [{}, {}, {}],
-  ];
+  const [turn, setTurn] = useState('O');
+  const [board, setBoard] = useState([
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', ''],
+  ]);
 
   return (
     <div className="App">
-      <Board board={board} />
+      <Board board={board} turn={turn} setTurn={setTurn} setBoard={setBoard} />
       <div>
         <h1>Hello World</h1>
       </div>

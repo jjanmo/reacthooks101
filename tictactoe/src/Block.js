@@ -1,4 +1,4 @@
-const Block = ({ item }) => {
+const Block = ({ id, text, board, turn, setTurn, setBoard }) => {
   const styles = {
     block: {
       width: '100px',
@@ -12,7 +12,28 @@ const Block = ({ item }) => {
     },
   };
 
-  return <div style={styles.block}>{item.text}</div>;
+  const onClick = () => {
+    turn === 'O' ? setTurn('X') : setTurn('O');
+
+    const [rowIdx, colIdx] = id.split('');
+    const _board = board.map((row, index) => {
+      if (index === Number(rowIdx)) {
+        return row.map((item, index) => {
+          if (index === Number(colIdx)) {
+            return turn;
+          }
+          return item;
+        });
+      } else return [...row];
+    });
+    setBoard(_board);
+  };
+
+  return (
+    <div style={styles.block} onClick={onClick}>
+      {text}
+    </div>
+  );
 };
 
 export default Block;
