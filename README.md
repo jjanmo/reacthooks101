@@ -53,6 +53,8 @@
 
 2. TicTacToe
 
+   > `tictactoe` directory
+
 3. Mine Sweeper
 
 ## [Custom Hooks](./docs/custom_hooks.md)

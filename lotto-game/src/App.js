@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import './App.css';
 import Ball from './Ball';
 import { getColor } from './utils';
 
