@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
   name: 'employee-crud',
@@ -29,14 +29,24 @@ module.exports = {
             ],
             '@babel/preset-react',
           ],
-          plugins: [],
+          plugins: ['react-refresh/babel'],
         },
       },
     ],
   },
-  plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
+  plugins: [new RefreshWebpackPlugin()],
+
   output: {
     filename: '[name].js',
     path: path.join(__dirname, 'dist'),
+    publicPath: '/dist',
+  },
+
+  devServer: {
+    hot: true,
+    devMiddleware: {
+      publicPath: '/dist',
+    },
+    static: { directory: path.resolve(__dirname, 'public') },
   },
 };

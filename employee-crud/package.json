@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack"
+    "dev": "webpack server --env development"
   },
   "keywords": [],
   "author": "",
@@ -16,8 +16,11 @@
   "devDependencies": {
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "babel-loader": "^8.2.3",
+    "react-refresh": "^0.11.0",
     "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
   }
 }
