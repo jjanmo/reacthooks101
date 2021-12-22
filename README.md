@@ -21,6 +21,8 @@
 
 - 오직 React 함수 내에서 Hook을 호출해야 한다. 일반적인 자바스크립트 함수 내에서는 호출하면 안된다. 단, 커스텀 훅스 안에서는 다른 훅스를 호출할 수 있다.
 
+### 왜 훅스는 이러한 규칙을 지켜야만 할까?
+
 ## Hooks API
 
 > 리액트에 제공하는 Hooks API는 [총 10가지](https://ko.reactjs.org/docs/hooks-reference.html)가 존재한다. 각각의 API가 어떻게 동작하고 어떻게 사용해야하는지 알아보자.
@@ -56,6 +58,12 @@
    > `tictactoe` directory
 
 3. Mine Sweeper
+
+4. Employee CRUD
+
+   > `employee-crud` directory
+
+   > Context API를 활용한 직원 관리(CRUD) 앱. [📺 참고링크](https://www.youtube.com/playlist?list=PLML_YxxGl1kEZZ1fNCXHGnws9HWEZ5B6R) 영상을 활용하여 구현해보았다.
 
 ## [Custom Hooks](./docs/custom_hooks.md)
 
