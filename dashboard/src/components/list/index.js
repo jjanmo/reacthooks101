@@ -1,28 +1,28 @@
 import React from 'react';
+import Item from '../item';
+import styles from './list.module.css';
 
 const List = () => {
+  const list = [
+    {
+      id: 1,
+      text: 'helloooo',
+    },
+    {
+      id: 2,
+      text: 'Context~~API',
+    },
+    {
+      id: 3,
+      text: 'so EASYYYYYY!!',
+    },
+  ];
+
   return (
-    <ul>
-      <li>
-        <div>Hello</div>
-        <button>Done</button>
-        <button>Delete</button>
-      </li>
-      <li>
-        <div>Context</div>
-        <button>Done</button>
-        <button>Delete</button>
-      </li>
-      <li>
-        <div>API</div>
-        <button>Done</button>
-        <button>Delete</button>
-      </li>
-      <li>
-        <div>Woops</div>
-        <button>Done</button>
-        <button>Delete</button>
-      </li>
+    <ul className={styles.container}>
+      {list.map((item) => (
+        <Item key={item.id} {...item} />
+      ))}
     </ul>
   );
 };
