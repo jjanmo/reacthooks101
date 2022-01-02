@@ -7,21 +7,29 @@
   font-size: 1.2rem;
   border-radius: 5px;
   margin: 5px 0;
-  border: 1px solid #e84393;
+  border: 1px solid hsl(11, 90%, 80%);
+  color: #353b48;
 }
 .container:hover {
-  background-color: #eee;
+  border-color: #d63031;
+}
+.seen {
+  background-color: #bdc3c7;
+  border-color: #bdc3c7;
+}
+.seenText {
+  text-decoration: line-through;
 }
 .button {
   all: unset;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  color: white;
   margin: 5px;
   font-size: 10px;
   text-align: center;
   cursor: pointer;
+  color: white;
 }
 .doneButton {
   composes: button;
@@ -30,4 +38,9 @@
 .deleteButton {
   composes: button;
   background-color: #c0392b;
+}
+.seenButton {
+  composes: button;
+  background-color: #bdc3c7;
+  border: 1px solid white;
 }
