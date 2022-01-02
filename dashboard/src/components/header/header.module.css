@@ -1,0 +1,19 @@
+.container {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+}
+.line {
+  width: 94%;
+  height: 2px;
+  background-color: #82ccdd;
+  margin: 5px 3%;
+}
+
+.container > * {
+  margin: 0 5px;
+  color: white;
+}

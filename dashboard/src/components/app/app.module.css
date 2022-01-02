@@ -1,0 +1,7 @@
+.app {
+  width: 400px;
+  height: 650px;
+  background-color: #ffcccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
