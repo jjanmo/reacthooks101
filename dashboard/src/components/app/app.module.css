@@ -4,4 +4,5 @@
   background-color: #ffcccc;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
