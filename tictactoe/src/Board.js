@@ -1,7 +1,7 @@
 import Block from './Block';
 import styles from './styles.module.css';
 
-const Board = ({ board, turn, setTurn, setBoard }) => {
+const Board = ({ board, turn, setTurn, setBoard, isEnd }) => {
   return (
     <div className={styles.board}>
       {board.map((row, i) => (
@@ -15,6 +15,7 @@ const Board = ({ board, turn, setTurn, setBoard }) => {
               board={board}
               setTurn={setTurn}
               setBoard={setBoard}
+              isEnd={isEnd}
             />
           ))}
         </div>

@@ -11,16 +11,15 @@ function App() {
     ['', '', ''],
   ]);
   const [message, setMessage] = useState('');
+  const [isEnd, setIsEnd] = useState(false);
 
   useEffect(() => {
-    // 검사 : 틱톡 검사
     if (checkBoard(board)) {
       setMessage(`${turn === 'O' ? 'X' : 'O'} Win`);
-
-      //끝
+      setIsEnd(true);
     }
 
-    if (turn === 'X') {
+    if (!isEnd && turn === 'X') {
       const [i, j] = getRandomPick(board);
 
       const updatedBoard = board.map((row, index) => {
@@ -37,11 +36,11 @@ function App() {
       setBoard(updatedBoard);
       setTurn('O');
     }
-  }, [turn]);
+  }, [turn, isEnd, board]);
 
   return (
     <div className="App">
-      <Board board={board} turn={turn} setTurn={setTurn} setBoard={setBoard} />
+      <Board board={board} turn={turn} setTurn={setTurn} setBoard={setBoard} isEnd={isEnd} />
       <div>
         <h1>{message}</h1>
       </div>

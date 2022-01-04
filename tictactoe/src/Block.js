@@ -1,8 +1,10 @@
 import React, { useCallback } from 'react';
 import styles from './styles.module.css';
 
-const Block = ({ id, text, board, turn, setTurn, setBoard }) => {
+const Block = ({ id, text, board, turn, setTurn, setBoard, isEnd }) => {
   const onClick = useCallback(() => {
+    if (isEnd) return;
+
     const [rowIdx, colIdx] = id.split('');
     const _board = board.map((row, index) => {
       if (index === Number(rowIdx)) {
@@ -17,7 +19,7 @@ const Block = ({ id, text, board, turn, setTurn, setBoard }) => {
     setBoard(_board);
 
     turn === 'O' ? setTurn('X') : setTurn('O');
-  }, [turn]);
+  }, [board, turn, isEnd, setBoard, setTurn, id]);
 
   return (
     <div className={styles.block} onClick={onClick}>
@@ -26,4 +28,4 @@ const Block = ({ id, text, board, turn, setTurn, setBoard }) => {
   );
 };
 
-export default Block;
+export default React.memo(Block);
