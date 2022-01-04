@@ -4,7 +4,10 @@
 
 <details>
 <summary style='font-size:18px'>Log 📖 </summary>
-21.12 Restart and Reset all
+21.12 Restart and Reset all <br /><br />
+
+22.01.03 Finish MiniProject03 <br />
+
 </details>
 
 ## Intro
@@ -57,17 +60,25 @@
 
    > `tictactoe` directory
 
-3. Mine Sweeper
+3. Context Dashboard
 
-4. Employee CRUD
+   > `dashboard` directory
+
+   > Context API 활용하는 간단한 ToDo-Dashboard
+
+4. Mine Sweeper
+
+5. Employee CRUD
 
    > `employee-crud` directory
 
-   > Context API를 활용한 직원 관리(CRUD) 앱. [📺 참고링크](https://www.youtube.com/playlist?list=PLML_YxxGl1kEZZ1fNCXHGnws9HWEZ5B6R) 영상을 활용하여 구현해보았다.
+   > [📺 참고링크](https://www.youtube.com/playlist?list=PLML_YxxGl1kEZZ1fNCXHGnws9HWEZ5B6R) 영상을 참고하여 구현
 
 ## [Custom Hooks](./docs/custom_hooks.md)
 
 커스텀(사용자 정의)훅스는 기본적으로 제공되는 Hooks API를 사용하여 새로운 함수를 재정의한 훅스를 말한다. 커스텀 훅스의 네이밍은 항상 `use`로 시작해야한다. 여기서는 몇 가지 커스텀 훅스를 만들어 볼 것이다.
+
+### 어떤 경우에 커스텀 훅을 만들어야 할까?
 
 ## Ref
 
