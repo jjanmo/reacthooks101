@@ -3,8 +3,6 @@ import styles from './styles.module.css';
 
 const Block = ({ id, text, board, turn, setTurn, setBoard }) => {
   const onClick = useCallback(() => {
-    turn === 'O' ? setTurn('X') : setTurn('O');
-
     const [rowIdx, colIdx] = id.split('');
     const _board = board.map((row, index) => {
       if (index === Number(rowIdx)) {
@@ -16,8 +14,9 @@ const Block = ({ id, text, board, turn, setTurn, setBoard }) => {
         });
       } else return [...row];
     });
-
     setBoard(_board);
+
+    turn === 'O' ? setTurn('X') : setTurn('O');
   }, [turn]);
 
   return (
