@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <Board board={board} turn={turn} setTurn={setTurn} setBoard={setBoard} />
       <div>
-        <h1>Hello World</h1>
+        <h1>{turn}</h1>
       </div>
     </div>
   );

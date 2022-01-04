@@ -1,21 +1,11 @@
 import Block from './Block';
+import styles from './styles.module.css';
 
 const Board = ({ board, turn, setTurn, setBoard }) => {
-  const styles = {
-    board: {
-      border: '1px solid black',
-      width: '300px',
-      marginBottom: '20px',
-    },
-    row: {
-      display: 'flex',
-    },
-  };
-
   return (
-    <div style={styles.board}>
+    <div className={styles.board}>
       {board.map((row, i) => (
-        <div key={i} style={styles.row}>
+        <div key={i} className={styles.row}>
           {row.map((text, j) => (
             <Block
               key={`${i}${j}`}

@@ -1,18 +1,8 @@
-const Block = ({ id, text, board, turn, setTurn, setBoard }) => {
-  const styles = {
-    block: {
-      width: '100px',
-      height: '100px',
-      border: '1px solid black',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      fontSize: '2rem',
-      cursor: 'pointer',
-    },
-  };
+import React, { useCallback } from 'react';
+import styles from './styles.module.css';
 
-  const onClick = () => {
+const Block = ({ id, text, board, turn, setTurn, setBoard }) => {
+  const onClick = useCallback(() => {
     turn === 'O' ? setTurn('X') : setTurn('O');
 
     const [rowIdx, colIdx] = id.split('');
@@ -26,11 +16,12 @@ const Block = ({ id, text, board, turn, setTurn, setBoard }) => {
         });
       } else return [...row];
     });
+
     setBoard(_board);
-  };
+  }, [turn]);
 
   return (
-    <div style={styles.block} onClick={onClick}>
+    <div className={styles.block} onClick={onClick}>
       {text}
     </div>
   );
