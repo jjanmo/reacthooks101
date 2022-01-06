@@ -20,6 +20,7 @@ function App() {
       const picked = getRandomPick(board);
 
       if (typeof picked === 'boolean') {
+        //draw 로직
         setIsEnd(true);
         setIsDraw(true);
       } else {
