@@ -30,6 +30,9 @@
 
 > 리액트에 제공하는 Hooks API는 [총 10가지](https://ko.reactjs.org/docs/hooks-reference.html)가 존재한다. 각각의 API가 어떻게 동작하고 어떻게 사용해야하는지 알아보자.
 
+<details>
+<summary>📌 Hook List </summary>
+
 - [useState ](./docs/hooks_api.md#usestate)
 
 - [useEffect ](./docs/hooks_api.md#useeffect)
@@ -50,9 +53,11 @@
 
 - useDebugValue
 
+</details>
+
 ## Hooks MiniProject
 
-1. Lotto Game
+1. Lotto Game ✅
 
    > `lotto-game` directory
 
@@ -60,7 +65,7 @@
 
    > `tictactoe` directory
 
-3. Context Dashboard
+3. Context Dashboard ✅
 
    > `dashboard` directory
 
