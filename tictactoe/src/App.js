@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Board from './Board';
 import './App.css';
-import { getRandomPick } from './utils';
+import { checkBoard, getRandomPick, isFull } from './utils';
 
 function App() {
   const [turn, setTurn] = useState('O');
@@ -12,33 +12,45 @@ function App() {
   ]);
   const [message, setMessage] = useState('');
   const [isEnd, setIsEnd] = useState(false);
+  const [isDraw, setIsDraw] = useState(false);
 
   useEffect(() => {
     // 컴퓨터 턴
     if (!isEnd && turn === 'X') {
-      const [i, j] = getRandomPick(board);
+      const picked = getRandomPick(board);
 
-      const updatedBoard = board.map((row, index) => {
-        if (index === i) {
-          return row.map((block, index) => {
-            if (index === j) return turn;
-            else return block;
-          });
+      if (typeof picked === 'boolean') {
+        setIsEnd(true);
+        setIsDraw(true);
+      } else {
+        const [i, j] = picked;
+        const updatedBoard = board.map((row, index) => {
+          if (index === i) {
+            return row.map((block, index) => {
+              if (index === j) return turn;
+              else return block;
+            });
+          } else {
+            return row;
+          }
+        });
+        setBoard(updatedBoard);
+
+        // 승부 체크
+        if (checkBoard(updatedBoard)) {
+          setIsEnd(true);
         } else {
-          return row;
+          setTurn('O');
         }
-      });
-
-      setBoard(updatedBoard);
-      setTurn('O');
+      }
     }
   }, [board, isEnd, turn]);
 
   useEffect(() => {
     if (isEnd) {
-      setMessage(`${turn} Win`);
+      setMessage(`${isDraw ? 'Draw!!' : `${turn} Win`}`);
     }
-  }, [isEnd, turn]);
+  }, [isEnd, turn, isDraw]);
 
   return (
     <div className="App">

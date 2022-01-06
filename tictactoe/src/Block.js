@@ -19,6 +19,7 @@ const Block = ({ id, text, board, turn, setTurn, setBoard, setIsEnd, isEnd }) =>
     });
     setBoard(_board);
 
+    // 승부 체크
     if (checkBoard(_board)) {
       setIsEnd(true);
     } else {

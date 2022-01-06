@@ -1,10 +1,25 @@
+const isFull = (board) => {
+  let count = 0;
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[i].length; j++) {
+      if (board[i][j]) count++;
+    }
+  }
+
+  return count === 9 ? true : false;
+};
+
 export const getRandomPick = (board) => {
-  while (true) {
-    const i = Math.floor(Math.random() * 3);
-    const j = Math.floor(Math.random() * 3);
-    if (!board[i][j]) {
-      console.log('2️⃣2️⃣2️⃣2️⃣');
-      return [i, j];
+  if (isFull(board)) {
+    return false;
+  } else {
+    while (true) {
+      console.log('aaa');
+      const i = Math.floor(Math.random() * 3);
+      const j = Math.floor(Math.random() * 3);
+      if (!board[i][j]) {
+        return [i, j];
+      }
     }
   }
 };
