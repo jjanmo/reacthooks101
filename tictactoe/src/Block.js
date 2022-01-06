@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react';
 import styles from './styles.module.css';
+import { checkBoard } from './utils';
 
-const Block = ({ id, text, board, turn, setTurn, setBoard, isEnd }) => {
+const Block = ({ id, text, board, turn, setTurn, setBoard, setIsEnd, isEnd }) => {
   const onClick = useCallback(() => {
     if (isEnd) return;
 
@@ -18,8 +19,12 @@ const Block = ({ id, text, board, turn, setTurn, setBoard, isEnd }) => {
     });
     setBoard(_board);
 
-    turn === 'O' ? setTurn('X') : setTurn('O');
-  }, [board, turn, isEnd, setBoard, setTurn, id]);
+    if (checkBoard(_board)) {
+      setIsEnd(true);
+    } else {
+      setTurn('X');
+    }
+  }, [isEnd, id, board, setBoard, turn, setIsEnd, setTurn]);
 
   return (
     <div className={styles.block} onClick={onClick}>
