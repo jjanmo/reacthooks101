@@ -8,6 +8,7 @@ const initialState = {
     ['', '', ''],
   ],
   turn: 'O',
+  isEnd: false,
 };
 
 const reducer = (state, action) => {
@@ -30,8 +31,14 @@ const reducer = (state, action) => {
         turn: state.turn === 'O' ? 'X' : 'O',
       };
     }
+    case ACTIONS.GAME_OVER: {
+      return {
+        ...state,
+        isEnd: true,
+      };
+    }
     default:
-      break;
+      return state;
   }
 };
 

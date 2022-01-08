@@ -5,36 +5,29 @@ import * as ACTIONS from './context/actions';
 import { checkBoard } from './utils';
 
 const Block = ({ rowIdx, colIdx, block }) => {
-  const { dispatch } = useContext(BoardContext);
+  const { isEnd, board, dispatch } = useContext(BoardContext);
+  const mounted = useRef(false);
 
   const onClick = useCallback(
     (e) => {
+      if (isEnd || e.target.textContent) return;
       dispatch({ type: ACTIONS.UPDATE_BOARD, row: rowIdx, col: colIdx });
-      dispatch({ type: ACTIONS.CHANGE_TURN });
-      // if (isEnd || e.target.textContent) return;
-
-      // const [rowIdx, colIdx] = id.split('');
-      // const _board = board.map((row, index) => {
-      //   if (index === Number(rowIdx)) {
-      //     return row.map((item, index) => {
-      //       if (index === Number(colIdx)) {
-      //         return turn;
-      //       }
-      //       return item;
-      //     });
-      //   } else return [...row];
-      // });
-      // setBoard(_board);
-
-      // // 승부 체크
-      // if (checkBoard(_board)) {
-      //   setIsEnd(true);
-      // } else {
-      //   setTurn('X');
-      // }
     },
-    [rowIdx, colIdx, dispatch]
+    [rowIdx, colIdx, dispatch, isEnd]
   );
+
+  // block 안에 내용이 바뀌는 경우만 보드 체크
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+    } else {
+      if (checkBoard(board)) {
+        dispatch({ type: ACTIONS.GAME_OVER });
+      } else {
+        dispatch({ type: ACTIONS.CHANGE_TURN });
+      }
+    }
+  }, [block]);
 
   return (
     <div className={styles.block} onClick={onClick}>

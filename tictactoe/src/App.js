@@ -1,12 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { BoardContext } from './context';
 import Board from './Board';
 import './App.css';
 import { checkBoard, getRandomPick } from './utils';
 
 function App() {
+  const { isEnd, turn } = useContext(BoardContext);
   const [message, setMessage] = useState('');
-  const [isEnd, setIsEnd] = useState(false);
-  const [isDraw, setIsDraw] = useState(false);
+
+  useEffect(() => {
+    if (isEnd) {
+      setMessage(`${turn} win`);
+    }
+  }, [isEnd]);
 
   // useEffect(() => {
   //   // 컴퓨터 턴
