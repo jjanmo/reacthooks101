@@ -1,25 +1,15 @@
-import Block from './Block';
+import { useContext } from 'react';
+import { BoardContext } from './context';
+import Row from './Row';
 import styles from './styles.module.css';
 
-const Board = ({ board, turn, setTurn, setBoard, isEnd, setIsEnd }) => {
+const Board = () => {
+  const { board } = useContext(BoardContext);
+  console.log(board);
   return (
     <div className={styles.board}>
-      {board.map((row, i) => (
-        <div key={i} className={styles.row}>
-          {row.map((text, j) => (
-            <Block
-              key={`${i}${j}`}
-              id={`${i}${j}`}
-              text={text}
-              turn={turn}
-              board={board}
-              setTurn={setTurn}
-              setBoard={setBoard}
-              setIsEnd={setIsEnd}
-              isEnd={isEnd}
-            />
-          ))}
-        </div>
+      {board.map((row, index) => (
+        <Row key={index} rowIdx={index} row={row} />
       ))}
     </div>
   );
