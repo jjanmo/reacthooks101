@@ -14,7 +14,6 @@ export const getRandomPick = (board) => {
     return false;
   } else {
     while (true) {
-      console.log('aaa');
       const i = Math.floor(Math.random() * 3);
       const j = Math.floor(Math.random() * 3);
       if (!board[i][j]) {

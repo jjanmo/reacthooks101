@@ -1,13 +1,16 @@
-import { useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { BoardContext } from './context';
 import Board from './Board';
 import './App.css';
+import * as ACTIONS from './context/actions';
+import styles from './styles.module.css';
 import { checkBoard, getRandomPick } from './utils';
 
 function App() {
-  const { isEnd, turn } = useContext(BoardContext);
+  const { isEnd, turn, dispatch } = useContext(BoardContext);
   const [message, setMessage] = useState('');
 
+  console.log('rendering');
   useEffect(() => {
     if (isEnd) {
       setMessage(`${turn} win`);
@@ -53,12 +56,21 @@ function App() {
   //   }
   // }, [isEnd, turn, isDraw]);
 
+  const onClick = useCallback(() => {
+    dispatch({ type: ACTIONS.RESTART_GAME });
+  }, []);
+
   return (
     <div className="App">
       <Board />
-      <div>
-        <h1>{message}</h1>
-      </div>
+      {isEnd && (
+        <div>
+          <h1>{message}</h1>
+          <button className={styles.button} onClick={onClick}>
+            Restart
+          </button>
+        </div>
+      )}
     </div>
   );
 }

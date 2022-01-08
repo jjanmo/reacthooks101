@@ -12,7 +12,6 @@ const initialState = {
 };
 
 const reducer = (state, action) => {
-  console.log('reducer', state, action);
   switch (action.type) {
     case ACTIONS.UPDATE_BOARD: {
       const { row, col } = action;
@@ -35,6 +34,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         isEnd: true,
+      };
+    }
+    case ACTIONS.RESTART_GAME: {
+      return {
+        ...initialState,
       };
     }
     default:
