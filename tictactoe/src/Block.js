@@ -21,7 +21,7 @@ const Block = ({ rowIdx, colIdx, block }) => {
     if (!mounted.current) {
       mounted.current = true;
     } else {
-      if (checkBoard(board)) {
+      if (checkBoard(board, rowIdx, colIdx)) {
         dispatch({ type: ACTIONS.GAME_OVER });
       } else {
         dispatch({ type: ACTIONS.CHANGE_TURN });
