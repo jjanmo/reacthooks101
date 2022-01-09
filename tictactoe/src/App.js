@@ -4,18 +4,21 @@ import Board from './Board';
 import './App.css';
 import * as ACTIONS from './context/actions';
 import styles from './styles.module.css';
-import { checkBoard, getRandomPick } from './utils';
 
 function App() {
-  const { isEnd, turn, dispatch } = useContext(BoardContext);
+  const state = useContext(BoardContext);
+  const { isEnd, isDraw, turn, dispatch } = useContext(BoardContext);
   const [message, setMessage] = useState('');
 
-  console.log('rendering');
+  console.log(state);
+
   useEffect(() => {
     if (isEnd) {
-      setMessage(`${turn} win`);
+      setMessage(`${turn === 'O' ? 'X' : 'O'} win`); // 블록 클릭을 하면 turn 변경되기때문에 이긴 경우는 바뀌기 전의 값을 줘야한다.
+    } else if (isDraw) {
+      setMessage('Draw!!');
     }
-  }, [isEnd]);
+  }, [isDraw, isEnd, turn]);
 
   // useEffect(() => {
   //   // 컴퓨터 턴
@@ -58,12 +61,13 @@ function App() {
 
   const onClick = useCallback(() => {
     dispatch({ type: ACTIONS.RESTART_GAME });
+    setMessage('');
   }, []);
 
   return (
     <div className="App">
       <Board />
-      {isEnd && (
+      {message && (
         <div>
           <h1>{message}</h1>
           <button className={styles.button} onClick={onClick}>

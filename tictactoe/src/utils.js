@@ -1,28 +1,3 @@
-const isFull = (board) => {
-  let count = 0;
-  for (let i = 0; i < board.length; i++) {
-    for (let j = 0; j < board[i].length; j++) {
-      if (board[i][j]) count++;
-    }
-  }
-
-  return count === 9 ? true : false;
-};
-
-export const getRandomPick = (board) => {
-  if (isFull(board)) {
-    return false;
-  } else {
-    while (true) {
-      const i = Math.floor(Math.random() * 3);
-      const j = Math.floor(Math.random() * 3);
-      if (!board[i][j]) {
-        return [i, j];
-      }
-    }
-  }
-};
-
 export const checkBoard = (board, row, col) => {
   let isWin = false;
 
@@ -45,3 +20,15 @@ export const checkBoard = (board, row, col) => {
 
   return isWin;
 };
+
+export const isFull = (board) => {
+  let count = 0;
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[i].length; j++) {
+      if (board[i][j]) count++;
+    }
+  }
+
+  return count === 9 ? true : false;
+}
+

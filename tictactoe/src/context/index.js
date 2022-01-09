@@ -9,6 +9,7 @@ const initialState = {
   ],
   turn: 'O',
   isEnd: false,
+  isDraw: false,
 };
 
 const reducer = (state, action) => {
@@ -34,6 +35,13 @@ const reducer = (state, action) => {
       return {
         ...state,
         isEnd: true,
+        winner: action.winner,
+      };
+    }
+    case ACTIONS.DRAW_GAME: {
+      return {
+        ...state,
+        isDraw: true,
       };
     }
     case ACTIONS.RESTART_GAME: {
