@@ -5,15 +5,19 @@ import * as ACTIONS from './context/actions';
 import { checkBoard, isFull } from './utils';
 
 const Block = ({ rowIdx, colIdx, block }) => {
-  const { isEnd, board, dispatch } = useContext(BoardContext);
+  const { board, dispatch, isEnd, isStarted } = useContext(BoardContext);
 
   const onClick = useCallback(
     (e) => {
+      if (!isStarted) {
+        alert('First, Select player!!');
+        return;
+      }
       if (isEnd || e.target.textContent) return;
       dispatch({ type: ACTIONS.UPDATE_BOARD, row: rowIdx, col: colIdx });
       dispatch({ type: ACTIONS.CHANGE_TURN });
     },
-    [rowIdx, colIdx, dispatch, isEnd]
+    [isStarted, rowIdx, colIdx, dispatch, isEnd]
   );
 
   // block 안에 내용이 바뀌는 경우만 보드 체크
@@ -23,7 +27,7 @@ const Block = ({ rowIdx, colIdx, block }) => {
     } else if (isFull(board)) {
       dispatch({ type: ACTIONS.DRAW_GAME });
     }
-  }, [block]);
+  }, [board, rowIdx, colIdx, dispatch]);
 
   return (
     <div className={styles.block} onClick={onClick}>

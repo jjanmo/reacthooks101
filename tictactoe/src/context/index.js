@@ -2,6 +2,7 @@ import { createContext, useReducer } from 'react';
 import * as ACTIONS from './actions';
 
 const initialState = {
+  // 게임 정보
   board: [
     ['', '', ''],
     ['', '', ''],
@@ -10,6 +11,10 @@ const initialState = {
   turn: 'O',
   isEnd: false,
   isDraw: false,
+
+  // 설정
+  player: 0,
+  isStarted: false,
 };
 
 const reducer = (state, action) => {
@@ -35,7 +40,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         isEnd: true,
-        winner: action.winner,
       };
     }
     case ACTIONS.DRAW_GAME: {
@@ -46,7 +50,22 @@ const reducer = (state, action) => {
     }
     case ACTIONS.RESTART_GAME: {
       return {
-        ...initialState,
+        ...state,
+        board: [
+          ['', '', ''],
+          ['', '', ''],
+          ['', '', ''],
+        ],
+        turn: 'O',
+        isEnd: false,
+        isDraw: false,
+      };
+    }
+    case ACTIONS.START_GAME: {
+      return {
+        ...state,
+        player: action.player,
+        isStarted: true,
       };
     }
     default:
