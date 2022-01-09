@@ -4,9 +4,48 @@ import * as ACTIONS from './actions';
 const initialState = {
   // 게임 정보
   board: [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', ''],
+    [
+      {
+        text: '',
+        elem: null,
+      },
+      {
+        text: '',
+        elem: null,
+      },
+      {
+        text: '',
+        elem: null,
+      },
+    ],
+    [
+      {
+        text: '',
+        elem: null,
+      },
+      {
+        text: '',
+        elem: null,
+      },
+      {
+        text: '',
+        elem: null,
+      },
+    ],
+    [
+      {
+        text: '',
+        elem: null,
+      },
+      {
+        text: '',
+        elem: null,
+      },
+      {
+        text: '',
+        elem: null,
+      },
+    ],
   ],
   turn: 'O',
   isEnd: false,
@@ -19,11 +58,28 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case ACTIONS.UPDATE_BOARD: {
-      const { row, col } = action;
+    case ACTIONS.INITIALIZE_BOARD: {
+      const { row, col, elem } = action;
       const newBoard = [...state.board];
       newBoard[row] = [...state.board[row]];
-      newBoard[row][col] = state.turn;
+      newBoard[row][col] = {
+        text: '',
+        elem,
+      };
+
+      return {
+        ...state,
+        board: newBoard,
+      };
+    }
+    case ACTIONS.UPDATE_BOARD: {
+      const { row, col, text } = action;
+      const newBoard = [...state.board];
+      newBoard[row] = [...state.board[row]];
+      newBoard[row][col] = {
+        ...newBoard[row][col],
+        text: text || state.turn,
+      };
 
       return {
         ...state,
@@ -52,9 +108,48 @@ const reducer = (state, action) => {
       return {
         ...state,
         board: [
-          ['', '', ''],
-          ['', '', ''],
-          ['', '', ''],
+          [
+            {
+              ...state.board[0][0],
+              text: '',
+            },
+            {
+              ...state.board[0][1],
+              text: '',
+            },
+            {
+              ...state.board[0][2],
+              text: '',
+            },
+          ],
+          [
+            {
+              ...state.board[1][0],
+              text: '',
+            },
+            {
+              ...state.board[1][1],
+              text: '',
+            },
+            {
+              ...state.board[1][2],
+              text: '',
+            },
+          ],
+          [
+            {
+              ...state.board[2][0],
+              text: '',
+            },
+            {
+              ...state.board[2][1],
+              text: '',
+            },
+            {
+              ...state.board[2][2],
+              text: '',
+            },
+          ],
         ],
         turn: 'O',
         isEnd: false,

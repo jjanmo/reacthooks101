@@ -4,61 +4,28 @@ import Board from './Board';
 import './App.css';
 import * as ACTIONS from './context/actions';
 import styles from './styles.module.css';
+import { selectRandomBlock } from './utils';
 
 function App() {
-  const state = useContext(BoardContext);
-  const { isEnd, isDraw, turn, dispatch } = useContext(BoardContext);
+  const { board, dispatch, isEnd, isDraw, player, turn } = useContext(BoardContext);
   const [message, setMessage] = useState('');
   const selectedValue = useRef(0);
 
-  console.log(state);
-
   useEffect(() => {
     if (isEnd) {
-      setMessage(`${turn === 'O' ? 'X' : 'O'} win`); // 블록 클릭을 하면 turn 변경되기때문에 이긴 경우는 바뀌기 전의 값을 줘야한다.
+      setMessage(`${turn} win`); // 블록 클릭을 하면 turn 변경되기 때문에 이긴 경우는 바뀌기 전의 값을 줘야한다.
     } else if (isDraw) {
       setMessage('Draw!!');
     }
   }, [isDraw, isEnd, turn]);
 
-  // useEffect(() => {
-  //   // 컴퓨터 턴
-  //   if (!isEnd && turn === 'X') {
-  //     const picked = getRandomPick(board);
-
-  //     if (typeof picked === 'boolean') {
-  //       //draw 로직
-  //       setIsEnd(true);
-  //       setIsDraw(true);
-  //     } else {
-  //       const [i, j] = picked;
-  //       const updatedBoard = board.map((row, index) => {
-  //         if (index === i) {
-  //           return row.map((block, index) => {
-  //             if (index === j) return turn;
-  //             else return block;
-  //           });
-  //         } else {
-  //           return row;
-  //         }
-  //       });
-  //       setBoard(updatedBoard);
-
-  //       // 승부 체크
-  //       if (checkBoard(updatedBoard)) {
-  //         setIsEnd(true);
-  //       } else {
-  //         setTurn('O');
-  //       }
-  //     }
-  //   }
-  // }, [board, isEnd, turn]);
-
-  // useEffect(() => {
-  //   if (isEnd) {
-  //     setMessage(`${isDraw ? 'Draw!!' : `${turn} Win`}`);
-  //   }
-  // }, [isEnd, turn, isDraw]);
+  // solo play에서의 컴퓨터턴
+  useEffect(() => {
+    if (player === 1 && turn === 'X' && !isDraw && !isEnd) {
+      const [row, col] = selectRandomBlock(board);
+      if (row !== -1 && col !== -1) board[row][col].elem.click();
+    }
+  }, [isDraw, isEnd, turn]);
 
   const onChange = useCallback((e) => {
     selectedValue.current = e.target.value;
@@ -71,6 +38,7 @@ function App() {
       return;
     } else {
       dispatch({ type: ACTIONS.START_GAME, player: selected });
+      alert('Game Start!!');
     }
   }, []);
 

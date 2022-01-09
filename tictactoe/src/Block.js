@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from 'react';
+import React, { useCallback, useContext, useEffect, useRef } from 'react';
 import { BoardContext } from './context';
 import styles from './styles.module.css';
 import * as ACTIONS from './context/actions';
@@ -6,6 +6,23 @@ import { checkBoard, isFull } from './utils';
 
 const Block = ({ rowIdx, colIdx, block }) => {
   const { board, dispatch, isEnd, isStarted } = useContext(BoardContext);
+  const blockRef = useRef(null);
+
+  useEffect(() => {
+    dispatch({ type: ACTIONS.INITIALIZE_BOARD, row: rowIdx, col: colIdx, elem: blockRef.current });
+  }, []);
+
+  // block 안에 내용이 바뀌는 경우만 보드 체크
+  useEffect(() => {
+    if (checkBoard(board, rowIdx, colIdx)) {
+      dispatch({ type: ACTIONS.GAME_OVER });
+    } else if (isFull(board)) {
+      dispatch({ type: ACTIONS.DRAW_GAME });
+    } else if (typeof isFull(board) === 'boolean') {
+      // 재시작 버튼을 눌렀을때 이 조건으로 들어오면 안된다.
+      dispatch({ type: ACTIONS.CHANGE_TURN });
+    }
+  }, [board, rowIdx, colIdx, dispatch]);
 
   const onClick = useCallback(
     (e) => {
@@ -14,24 +31,15 @@ const Block = ({ rowIdx, colIdx, block }) => {
         return;
       }
       if (isEnd || e.target.textContent) return;
+
       dispatch({ type: ACTIONS.UPDATE_BOARD, row: rowIdx, col: colIdx });
-      dispatch({ type: ACTIONS.CHANGE_TURN });
     },
     [isStarted, rowIdx, colIdx, dispatch, isEnd]
   );
 
-  // block 안에 내용이 바뀌는 경우만 보드 체크
-  useEffect(() => {
-    if (checkBoard(board, rowIdx, colIdx)) {
-      dispatch({ type: ACTIONS.GAME_OVER });
-    } else if (isFull(board)) {
-      dispatch({ type: ACTIONS.DRAW_GAME });
-    }
-  }, [board, rowIdx, colIdx, dispatch]);
-
   return (
-    <div className={styles.block} onClick={onClick}>
-      {block}
+    <div ref={blockRef} className={styles.block} onClick={onClick}>
+      {block.text}
     </div>
   );
 };
