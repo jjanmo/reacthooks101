@@ -1,15 +1,16 @@
-import React, { useCallback, useContext, useEffect, useRef } from 'react';
+import { memo, useCallback, useContext, useEffect, useRef } from 'react';
 import { BoardContext } from './context';
 import styles from './styles.module.css';
 import * as ACTIONS from './context/actions';
 import { checkBoard, isFull } from './utils';
 
-const Block = ({ rowIdx, colIdx, block }) => {
-  const { board, dispatch, isEnd, isStarted } = useContext(BoardContext);
+const Block = memo(({ rowIdx, colIdx, block }) => {
+  const { board, dispatch, isEnd, isStarted, player } = useContext(BoardContext);
   const blockRef = useRef(null);
-
   useEffect(() => {
-    dispatch({ type: ACTIONS.INITIALIZE_BOARD, row: rowIdx, col: colIdx, elem: blockRef.current });
+    if (player === 1) {
+      dispatch({ type: ACTIONS.INITIALIZE_BOARD, row: rowIdx, col: colIdx, elem: blockRef.current });
+    }
   }, []);
 
   // block 안에 내용이 바뀌는 경우만 보드 체크
@@ -42,6 +43,6 @@ const Block = ({ rowIdx, colIdx, block }) => {
       {block.text}
     </div>
   );
-};
+});
 
-export default React.memo(Block);
+export default Block;

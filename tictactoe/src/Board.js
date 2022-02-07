@@ -1,11 +1,10 @@
-import { useContext } from 'react';
+import { memo, useContext } from 'react';
 import { BoardContext } from './context';
 import Row from './Row';
 import styles from './styles.module.css';
 
-const Board = () => {
+const Board = memo(() => {
   const { board } = useContext(BoardContext);
-
   return (
     <div className={styles.board}>
       {board.map((row, index) => (
@@ -13,6 +12,6 @@ const Board = () => {
       ))}
     </div>
   );
-};
+});
 
 export default Board;
