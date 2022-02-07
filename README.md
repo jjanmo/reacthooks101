@@ -65,6 +65,8 @@
 
    > `tictactoe` directory
 
+   > useReducer와 useContext를 활용해보자.
+
 3. Context Dashboard ✅
 
    > `dashboard` directory
@@ -81,9 +83,19 @@
 
 ## [Custom Hooks](./docs/custom_hooks.md)
 
+> [유용한 커스텀 훅을 모아놓은 콜렉션 저장소 👍](https://github.com/streamich/react-use)
+
 커스텀(사용자 정의)훅스는 기본적으로 제공되는 Hooks API를 사용하여 새로운 함수를 재정의한 훅스를 말한다. 커스텀 훅스의 네이밍은 항상 `use`로 시작해야한다. 여기서는 몇 가지 커스텀 훅스를 만들어 볼 것이다.
 
-### 어떤 경우에 커스텀 훅을 만들어야 할까?
+### Why & When to make custom hooks
+
+- 여러 개의 컴퍼넌트에서 상태 관련 로직이 중복될 때, 커스텀 훅을 만들어서 재사용할 수 있다.(reusable)
+
+- 여러 개의 로직을 분리하고 싶을 때, 커스텀 훅을 만들수 있다.(encapsulated)
+
+- 커스텀 훅을 만듦으로서 테스트하기 용이해진다.(testable)
+
+- 일반적으로 커스텀 훅은 특정 값을 반환한다. (이 부분은 무조건은 아니며, 컴퍼넌트 혹은 마크업도 반환가능하다.)
 
 ## Ref
 
