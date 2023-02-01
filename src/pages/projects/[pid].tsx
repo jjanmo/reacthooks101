@@ -3,7 +3,7 @@ import Tictactoe from '@components/tictactoe'
 
 export default function Projects() {
   const router = useRouter()
-  const pid = router.query.pid
+  const pid = Number(router.query.pid)
 
-  return <>{pid === 'tictactoe' && <Tictactoe />}</>
+  return <>{pid === 1 && <Tictactoe />}</>
 }
