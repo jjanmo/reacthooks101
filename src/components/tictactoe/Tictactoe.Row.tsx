@@ -1,6 +1,6 @@
-import React from 'react';
-import Block from './Block';
-import styles from './styles.module.css';
+import { memo } from 'react'
+import Block from './Block'
+import styles from './styles.module.css'
 
 const Row = ({ rowIdx, row }) => {
   return (
@@ -9,7 +9,7 @@ const Row = ({ rowIdx, row }) => {
         <Block key={index} rowIdx={rowIdx} colIdx={index} block={block} />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(Row);
+export default memo(Row)

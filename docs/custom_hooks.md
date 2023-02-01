@@ -61,3 +61,6 @@
 - useInfiniteScroll
 
   > 무한 스크롤
+
+- API calls
+- https://medium.com/@kabirenger/create-a-custom-hook-for-api-calls-react-typescript-e3fb3e68a5d

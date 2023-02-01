@@ -3,10 +3,14 @@
 > 리액트 훅스에 대해서 알아보자.
 
 <details>
-<summary style='font-size:18px'>Log 📖 </summary>
-21.12 Restart and Reset all <br /><br />
+<summary>Log 📖 </summary>
+- 21.12 Restart and Reset all
 
-22.01.03 Finish MiniProject03 <br />
+- 22.01.03 Finish MiniProject03
+
+- 23.02.01 리액트훅스101 페이지화!
+
+- [Archive]()
 
 </details>
 
@@ -14,7 +18,7 @@
 
 예전에 리액트에서는 `상태 변화`을 관리하기 위해, 혹은 `API요청`을 필요로 할 때, **리액트의 라이프 라이클 메소드를 이용하는 상황**에서는 항상 `class기반`으로 구현해야만 했다. 그렇기 때문에 함수형 컴퍼넌트는 단순히 props를 건네주는 역할을 통해서 단순 presenter의 역할의 컴퍼넌트로서 사용되었다.
 
-이러한 함수형 컴퍼넌트가 갖는 문제점을 해결하기 위해서, 함수형을 좀 더 발전시키기 위해서 [recompose](https://github.com/acdlite/recompose) 라는 프로젝트가 `Andrew Clark`에 의해서 진행되었다. 이 프로젝트가 좋은 반응을 얻으면선 점차적으로 함수형 리액트에 대한 요구가 많아졌고, 실제로 페이스북 내부적으로 함수형 리액트(훅스)를 개발중에 있었다고 한다. 결과적으로 Andrew는 React Team에 합류하게 되고, 이 프로젝트를 전격으로 리액트가 받아들여서 `React Hooks`가 탄생(?)하였다. `React Hooks`은 리액트를 함수형 컴퍼넌트에서도 클래스 컴퍼넌트와 동일하게 작동하게끔 구현하고자 하는 동기를 갖고 탄생하게 된 리액트의 업데이트 버전이라고 할 수 있다.
+이러한 함수형 컴퍼넌트가 갖는 문제점을 해결하기 위해서, 함수형을 좀 더 발전시키기 위해서 [recompose](https://github.com/acdlite/recompose) 라는 프로젝트가 `Andrew Clark`에 의해서 진행되었다. 이 프로젝트가 좋은 반응을 얻으면선 점차적으로 함수형 리액트에 대한 요구가 많아졌고, 실제로 페이스북 내부적으로 함수형 리액트(훅스)를 개발 중에 있었다고 한다. 결과적으로 Andrew는 React Team에 합류하게 되고, 이 프로젝트를 전격적으로 리액트가 받아들여서 `React Hooks`가 탄생(?)하였다. `React Hooks`은 리액트를 함수형 컴퍼넌트에서도 클래스 컴퍼넌트와 동일하게 작동하게끔 구현하고자 하는 동기를 갖고 탄생하게 된 리액트의 업데이트 버전이라고 할 수 있다.
 
 ## What is Hooks
 
@@ -24,7 +28,17 @@
 
 - 오직 React 함수 내에서 Hook을 호출해야 한다. 일반적인 자바스크립트 함수 내에서는 호출하면 안된다. 단, 커스텀 훅스 안에서는 다른 훅스를 호출할 수 있다.
 
-### 왜 훅스는 이러한 규칙을 지켜야만 할까?
+## 그렇다면 왜 훅스는 이러한 규칙을 지켜야만 할까?
+
+> 훅스가 내부적으로 어떻게 작동할까?
+
+https://hewonjeong.github.io/deep-dive-how-do-react-hooks-really-work-ko/
+
+https://jeonghwan-kim.github.io/dev/2022/04/11/use-state.html
+
+https://www.the-guild.dev/blog/react-hooks-system
+
+https://ko.reactjs.org/docs/hooks-intro.html
 
 ## Hooks API
 
@@ -65,7 +79,7 @@
 
    > `tictactoe` directory
 
-   > useReducer와 useContext를 활용해보자.
+   > useReducer와 Context API를 활용해보자.
 
 3. Context Dashboard ✅
 
@@ -75,11 +89,7 @@
 
 4. Mine Sweeper
 
-5. Employee CRUD
-
-   > `employee-crud` directory
-
-   > [📺 참고링크](https://www.youtube.com/playlist?list=PLML_YxxGl1kEZZ1fNCXHGnws9HWEZ5B6R) 영상을 참고하여 구현
+   > Hooks의 종합 선물세트!
 
 ## [Custom Hooks](./docs/custom_hooks.md)
 
@@ -102,3 +112,28 @@
 - Practical React Hooks : [`Learn by Building 10 Hooks`](https://nomadcoders.co/react-hooks-introduction) with _Nomad Coders_
 
 - [React Hooks Official Document](https://ko.reactjs.org/docs/hooks-intro.html)
+
+---
+
+개편
+
+- hooks를 이용한 프로젝트 : nextjs에서 사용
+
+  1.  Lotto Game ✅
+  2.  TicTacToe
+  3.  Context Dashboard ✅
+  4.  Mine Sweeper
+
+  [참고] https://www.youtube.com/playlist?list=PLcqDmjxt30RtqbStQqk-eYMK8N-1SYIFn
+
+  -
+
+  5.  2048 : https://play2048.co/ (실전-리액트-프로그래밍 : part1)
+
+- 새로운 hooks에 대한 이해
+  https://ko.reactjs.org/docs/hooks-reference.html
+  https://betterprogramming.pub/5-new-hooks-in-react-18-300aa713cefe
+
+- custom hooks : https://www.freecodecamp.org/news/react-hooks-every-project-should-use/
+
+- https://github.com/mantinedev/mantine : 이 프로젝트를 분석하면서 직접 구현해보기!
