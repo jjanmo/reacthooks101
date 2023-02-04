@@ -64,6 +64,7 @@ export default function Lotto() {
           <Ball key={index} number={number} />
         ))}
       </S.BallContainer>
+
       <h1>보너스 숫자</h1>
       {bonus.map((number, index) => (
         <Ball key={index} number={number} />
