@@ -1,4 +1,6 @@
-.container {
+import styled from 'styled-components'
+
+export const Container = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -10,13 +12,13 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
-}
-.hiddenContainer {
-  composes: container;
-  display: none;
-}
+`
+// .hiddenContainer {
+//   composes: container;
+//   display: none;
+// }
 
-.form {
+export const Form = styled.form`
   width: 80%;
   height: 30%;
   background-color: #c7ecee;
@@ -25,9 +27,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-}
-
-.input {
+`
+export const Input = styled.input`
   all: unset;
   outline: none;
   background-color: #eee;
@@ -37,13 +38,13 @@
   font-size: 18px;
   padding: 5px 10px;
   margin-bottom: 10px;
-}
-.buttonContainer {
+`
+export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.button {
+`
+export const Button = styled.button`
   all: unset;
   background-color: white;
   cursor: pointer;
@@ -52,12 +53,10 @@
   margin: 5px;
   border-radius: 5px;
   font-size: 14px;
-}
-.submitButton {
-  composes: button;
+`
+export const SubmitButton = styled(Button)`
   background-color: #27ae60;
-}
-.cancelButton {
-  composes: button;
+`
+export const CancelButton = styled(Button)`
   background-color: #c0392b;
-}
+`

@@ -119,16 +119,16 @@ https://ko.reactjs.org/docs/hooks-intro.html
 
 - hooks를 이용한 프로젝트 : nextjs에서 사용
 
-  1.  Lotto Game ✅
+  1.  Lotto Game
   2.  TicTacToe
-  3.  Context Dashboard ✅
+  3.  TodoApp
   4.  Mine Sweeper
 
   [참고] https://www.youtube.com/playlist?list=PLcqDmjxt30RtqbStQqk-eYMK8N-1SYIFn
 
-  -
-
   5.  2048 : https://play2048.co/ (실전-리액트-프로그래밍 : part1)
+
+  ***
 
 - 새로운 hooks에 대한 이해
   https://ko.reactjs.org/docs/hooks-reference.html

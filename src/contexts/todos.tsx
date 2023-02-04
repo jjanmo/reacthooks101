@@ -9,7 +9,7 @@ export interface Todo {
 interface TodosContextType {
   todos: Todo[]
   deleteTodo: (id: number) => void
-  addItem: (text: string) => void
+  addTodo: (text: string) => void
 }
 
 const TodosContext = createContext({} as TodosContextType)
@@ -32,7 +32,7 @@ export function TodosProvider({ children }: { children: React.ReactNode }) {
     setTodos(todos.filter((item) => item.id !== id))
   }
 
-  const addItem = (text: string) => {
+  const addTodo = (text: string) => {
     const newTodos: Todo[] = [
       ...todos,
       {
@@ -49,7 +49,7 @@ export function TodosProvider({ children }: { children: React.ReactNode }) {
       value={{
         todos,
         deleteTodo,
-        addItem,
+        addTodo,
       }}
     >
       {children}

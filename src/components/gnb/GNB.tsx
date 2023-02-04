@@ -1,14 +1,21 @@
+import Link from 'next/link'
 import * as S from './GNB.style'
 
 export default function GNB() {
   return (
     <S.Container>
       <div>로고</div>
-      <div>
-        <div>Hooks</div>
-        <div>Projects</div>
-        <div>About</div>
-      </div>
+      <S.List>
+        <li>
+          <Link href="/hooks">Hooks</Link>
+        </li>
+        <li>
+          <Link href="/examples">Examples</Link>
+        </li>
+        <li>
+          <Link href="/about">About</Link>
+        </li>
+      </S.List>
     </S.Container>
   )
 }

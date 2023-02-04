@@ -1,35 +1,33 @@
-import React, { useCallback, useContext } from 'react';
-import styles from './header.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faCog, faPlus, faUser } from '@fortawesome/free-solid-svg-icons';
-import Store from '../../contexts';
+import React, { useCallback, useContext } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBell, faCog, faPlus, faUser } from '@fortawesome/free-solid-svg-icons'
+import useTodosContext from '@context/todos'
+import * as S from './Todos.Header.style'
 
 const Header = () => {
-  const context = useContext(Store);
+  const { addTodo, todos } = useTodosContext()
 
-  const onClickAdd = useCallback(() => {
-    context.toggleForm();
-  }, [context]);
+  const handleClickAdd = useCallback(() => {}, [])
 
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.button} onClick={onClickAdd}>
+      <S.Container>
+        <S.Button onClick={handleClickAdd}>
           <FontAwesomeIcon icon={faPlus} size="2x" />
-        </div>
-        <div className={styles.button}>
+        </S.Button>
+        <S.Button>
           <FontAwesomeIcon icon={faUser} size="2x" />
-        </div>
-        <div className={styles.button}>
+        </S.Button>
+        <S.Button>
           <FontAwesomeIcon icon={faCog} size="2x" />
-        </div>
-        <div className={styles.button}>
+        </S.Button>
+        <S.Button>
           <FontAwesomeIcon icon={faBell} size="2x" />
-          <span className={styles.number}>{context.items.filter((item) => !item.seen).length}</span>
-        </div>
-      </div>
+          <S.Number>{todos.length}</S.Number>
+        </S.Button>
+      </S.Container>
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
