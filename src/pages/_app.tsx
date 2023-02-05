@@ -1,12 +1,21 @@
 import GNB from '@components/gnb/GNB'
 import { AppProps } from 'next/app'
 import Layout from '@components/layout'
+import Head from 'next/head'
+import GlobalStyles from '@styles/GlobalStyles'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <GNB />
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Head>
+        <title>hooks101</title>
+      </Head>
+
+      <GlobalStyles />
+      <Layout>
+        <GNB />
+        <Component {...pageProps} />
+      </Layout>
+    </>
   )
 }
