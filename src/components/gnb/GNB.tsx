@@ -7,7 +7,7 @@ export default function GNB() {
       <div>로고</div>
       <S.List>
         <li>
-          <Link href="/hooks">Hooks</Link>
+          <Link href="/documents">Documents</Link>
         </li>
         <li>
           <Link href="/examples">Examples</Link>
