@@ -1,18 +1,31 @@
 import Link from 'next/link'
 import * as S from './GNB.style'
 import React from '@icons/react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+/**
+ *  TODO
+ * - responsive hooks
+ * - scroll hooks + optimization
+ * - scroll에 반응하는 애니메이션
+ */
 
 export default function GNB() {
   const animationContainer = useRef<HTMLDivElement>(null)
+  const [distance, setDistance] = useState<number>(0)
 
-  // useEffect(() => {
-  //   const animationContainerWidth = animationContainer.current
-  //   console.dir(animationContainerWidth?.offsetWidth)
-  //   console.log(document.documentElement.scrollHeight)
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (animationContainer.current) {
+        const scrollY = window.pageYOffset
+        const height = document.documentElement.scrollHeight
 
-  //   console.log(window.scrollY)
-  // }, [window.scrollY])
+        const distance = (scrollY / height) * animationContainer.current.offsetWidth
+        console.log('>>>', distance)
+        setDistance(distance)
+      }
+    })
+  }, [])
 
   return (
     <S.Container>
@@ -20,7 +33,7 @@ export default function GNB() {
         <Link href="/">reacthooks 101</Link>
       </S.LogoText>
       <S.AnimationContainer ref={animationContainer}>
-        <S.LogoWrapper>
+        <S.LogoWrapper distance={distance}>
           <React />
         </S.LogoWrapper>
       </S.AnimationContainer>

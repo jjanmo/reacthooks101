@@ -44,18 +44,19 @@ export const AnimationContainer = styled.div`
   position: relative;
   height: 100%;
   margin: 0 1rem;
-  /* background-color: red; */
   flex: 1;
   display: flex;
   align-items: center;
 `
-export const LogoWrapper = styled.div`
+export const LogoWrapper = styled.div<{ distance: number }>`
   position: absolute;
+  top: 50%;
+  left: 0;
   width: 6rem;
   height: 6rem;
+  transform: ${({ distance }) => `translate(${distance}px, -50%) `};
 
   & svg {
-    animation: ${rotating} 2s linear infinite;
-    transform-origin: center center;
+    animation: ${rotating} 1s linear infinite;
   }
 `
