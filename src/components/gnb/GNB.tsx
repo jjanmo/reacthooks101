@@ -17,11 +17,11 @@ export default function GNB() {
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (animationContainer.current) {
-        const scrollY = window.pageYOffset
-        const height = document.documentElement.scrollHeight
+        const scrollY = document.documentElement.scrollTop
+        const scrollHeight =
+          document.documentElement.scrollHeight - document.documentElement.clientHeight
 
-        const distance = (scrollY / height) * animationContainer.current.offsetWidth
-        console.log('>>>', distance)
+        const distance = (scrollY / scrollHeight) * (animationContainer.current.offsetWidth - 60)
         setDistance(distance)
       }
     })
