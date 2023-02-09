@@ -12,8 +12,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <GlobalStyles />
+      <GNB />
       <Layout>
-        <GNB />
         <Component {...pageProps} />
       </Layout>
     </>

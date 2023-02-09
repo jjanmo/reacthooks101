@@ -137,3 +137,22 @@ https://ko.reactjs.org/docs/hooks-intro.html
 - custom hooks : https://www.freecodecamp.org/news/react-hooks-every-project-should-use/
 
 - https://github.com/mantinedev/mantine : 이 프로젝트를 분석하면서 직접 구현해보기!
+
+docs
+https://ko.reactjs.org/docs/hooks-intro.html
+
+- intro 개요
+- hooks의 등장 > 어떤 문제를 풀기 위해 나타난 슈퍼맨인지
+
+  https://blog.logrocket.com/understanding-common-frustrations-react-hooks/
+
+- hooks mechanism > 왜 우리는 훅스 규칙을 지켜야하는가?
+
+  https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work/
+  https://hridoybanik.medium.com/mechanism-of-react-hooks-e59e8f3c65d
+  https://indepth.dev/posts/1220/under-the-hood-of-react-hooks > + react fiber
+
+hooks의 예시
+
+- 실제 어떻게 사용했는지...
+- jqeury 컴퍼넌트 사용
