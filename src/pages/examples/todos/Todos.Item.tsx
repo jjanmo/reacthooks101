@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './item.module.css'
-import useTodosContext, { Todo } from '../../contexts/todos'
+import useTodosContext, { Todo } from '../../../contexts/todos'
 import * as S from './Todos.Item.style'
 
 const Item = ({ id, text, status }: Todo) => {
