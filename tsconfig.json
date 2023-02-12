@@ -21,7 +21,8 @@
       "@context/*": ["src/contexts/*"],
       "@styles/*": ["src/styles/*"],
       "@icons/*": ["src/icons/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@config/*": ["src/config/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
