@@ -1,4 +1,4 @@
-import { BLUES, BLUES_KEY, COMMON } from '@styles/colors'
+import { COMMON } from '@styles/colors'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -9,9 +9,9 @@ export const Container = styled.div`
 export const GridContainer = styled.div`
   margin: 4rem auto;
   display: grid;
-  grid-template-columns: repeat(5, 130px);
-  grid-template-rows: repeat(5, 130px);
-  gap: 0.5rem;
+  grid-template-columns: repeat(5, 140px);
+  grid-template-rows: repeat(5, 140px);
+  gap: 1rem;
 `
 export const Month = styled.div<{ row: number; col: number; color: string; active?: boolean }>`
   grid-row: ${({ row }) => row};
@@ -21,7 +21,9 @@ export const Month = styled.div<{ row: number; col: number; color: string; activ
   align-items: center;
   background-color: ${({ color }) => color};
   color: ${COMMON.MILKY_WAY};
-  border: ${({ active }) => active && `3px solid ${COMMON.ORANGE}`};
+  border-radius: ${({ active }) => (active ? '50%' : '1rem')};
   font-size: 3rem;
+
+  transition: 0.3s;
   cursor: pointer;
 `
