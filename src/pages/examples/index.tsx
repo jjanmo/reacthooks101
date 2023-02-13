@@ -10,7 +10,7 @@ export default function () {
 
       <S.GridContainer>
         {projects.map((project, index) => (
-          <S.Item key={project} color={`BLUE_${Math.floor(Math.random() * (9 - 1) + 1)}00`}>
+          <S.Item key={project} color={`${Math.floor(Math.random() * (9 - 1) + 1) * 100}`}>
             <S.InnerBox>
               <Link href={`/examples/${index + 1}`}>{project}</Link>
             </S.InnerBox>

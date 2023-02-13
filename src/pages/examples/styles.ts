@@ -1,4 +1,4 @@
-import { COLORS, COLORS_KEY } from '@styles/colors'
+import { BLUES, BLUES_KEY } from '@styles/colors'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -54,7 +54,7 @@ export const InnerBox = styled.div`
 export const Item = styled.div<{ color: string }>`
   width: 100%;
   height: 100%;
-  border: ${({ color }) => `2px solid ${COLORS[color as COLORS_KEY]}`};
+  border: ${({ color }) => `2px solid ${BLUES[color as unknown as BLUES_KEY]}`};
   border-radius: 1rem;
   overflow: hidden;
 
@@ -65,7 +65,7 @@ export const Item = styled.div<{ color: string }>`
   transition: all 0.5s ease-in-out;
 
   ${InnerBox} {
-    background-color: ${({ color }) => COLORS[color as COLORS_KEY]};
+    background-color: ${({ color }) => BLUES[color as unknown as BLUES_KEY]};
   }
 
   &:hover {
