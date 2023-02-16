@@ -12,7 +12,7 @@ export default function () {
         {projects.map((project, index) => (
           <S.Item key={project} color={`${Math.floor(Math.random() * (9 - 1) + 1) * 100}`}>
             <S.InnerBox>
-              <Link href={`/examples/${index + 1}`}>{project}</Link>
+              <Link href={`/projects/${index + 1}`}>{project}</Link>
             </S.InnerBox>
           </S.Item>
         ))}

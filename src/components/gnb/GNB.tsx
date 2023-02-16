@@ -42,7 +42,7 @@ export default function GNB() {
           <Link href="/documents">documents</Link>
         </S.NavItem>
         <S.NavItem>
-          <Link href="/examples">examples</Link>
+          <Link href="/projects">Projects</Link>
         </S.NavItem>
         <S.NavItem>
           <Link href="/about">about</Link>

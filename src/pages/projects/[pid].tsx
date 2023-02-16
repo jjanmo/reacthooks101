@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import Lotto from '@pages/examples/lotto'
-import TodoApp from '@pages/examples/todos'
+import Lotto from '@pages/projects/lotto'
+import TodoApp from '@pages/projects/todos'
 import Tictactoe from '@components/tictactoe'
 
 export default function Games() {
