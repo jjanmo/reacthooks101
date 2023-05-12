@@ -93,3 +93,4 @@ export const MONTHS: Month[] = [
     color: '#84C8DA',
   },
 ]
+export const DAYS = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
